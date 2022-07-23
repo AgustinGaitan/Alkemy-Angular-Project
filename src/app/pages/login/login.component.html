@@ -1,0 +1,44 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+  <main class="px-3">
+    <h1>Login</h1>
+    <div class="col-6">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+          <div class="col">
+            <label for="floatingInput">Email</label>
+            <input type="text" formControlName="email" class="form-control" name="email">
+            <div 
+              class="text-danger p-1" 
+              *ngIf="loginForm.controls['email'].errors?.['required'] 
+              &&
+              loginForm.controls['email'].touched"
+            >
+              Invalid email.
+            </div>
+          </div>
+
+          <div class="col">
+            <label for="floatingInput">Password</label>
+            <input type="text" formControlName="password" class="form-control" name="password" minlength="5">
+            <div 
+              class="text-danger p-1" 
+              *ngIf="loginForm.controls['password'].errors?.['required'] 
+              &&
+              loginForm.controls['password'].touched"
+            >
+              Invalid password.
+            </div>
+          </div>
+                                                             
+          <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid || disableButton">Enviar</button>
+
+      </form>
+      <div *ngIf="disableButton">
+        <h1>Spinner</h1>
+      </div>
+    </div>
+  </main>
+
+</div>
