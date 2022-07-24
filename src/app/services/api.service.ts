@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  url : string = "https://api.spoonacular.com/food/products/search?apiKey=935ef93e69ea4383a6755b868e8297f6";
+  url : string = "https://api.spoonacular.com/recipes/complexSearch?apiKey=935ef93e69ea4383a6755b868e8297f6";
   urlLogin : string = "http://challenge-react.alkemy.org/";
 
   constructor(private http : HttpClient) { 
@@ -29,7 +29,7 @@ export class ApiService {
 
   getDishes(){
     
-    return this.http.get(`${this.url}&query=pasta`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${this.url}&number=12&`,{headers:{'Content-Type':'application/json'}});
 
   }
 }

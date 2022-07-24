@@ -5,13 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { HomeModule } from './modules/home/home.module';
+import { DishComponent } from './components/dish/dish.component';
+import { DishFormComponent } from './components/dish-form/dish-form.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    DishFormComponent,
   ],
   imports: [
     BrowserModule,

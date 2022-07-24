@@ -18,7 +18,7 @@ export class DishesComponent implements OnInit {
     .subscribe({
       next: (res : any) =>{
         console.log(res);
-        this.dishes = res.products;
+        this.dishes = res.results;
       },
       error: (error : any) =>{
 

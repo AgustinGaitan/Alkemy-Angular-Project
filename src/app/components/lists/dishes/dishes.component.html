@@ -1,16 +1,5 @@
 <div class="row justify-content-around dishes">
-    <div *ngFor="let dish of dishes">
-
-        <div class="col-6">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" height="250" width="250" [src]="dish.image" alt="dish">
-                <div class="card-body">
-                <h5 class="card-title">{{dish.title}}</h5>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+    <div class="col-12 col-md-4 row rounded" *ngFor="let dish of dishes">
+            <app-dish [dish]="dish"></app-dish>
     </div>
-
-
 </div>
