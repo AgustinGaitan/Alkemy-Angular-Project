@@ -12,6 +12,9 @@ export class DishesComponent implements OnInit {
 
   dishes : Array<any> = [];
   dishes$ : any;
+
+  dishDelete : any;
+
   constructor(private api : ApiService) { 
 
     this.api.getDishes()
@@ -40,4 +43,9 @@ export class DishesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  DeleteDish(dish : any){
+
+    this.dishes = this.dishes.filter((el : any) => el != dish);
+
+  }
 }
