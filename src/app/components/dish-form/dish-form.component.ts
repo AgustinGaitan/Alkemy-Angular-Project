@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { debounce, debounceTime, fromEvent, interval } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dish-form',
@@ -8,8 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class DishFormComponent implements OnInit {
 
   filterRes : any;
-
-  constructor() { }
+  dishes : Array<string> = [];
+  dishes$ : any;
+  result : any;
+  
+  constructor(private api : ApiService) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +23,16 @@ export class DishFormComponent implements OnInit {
 
   filter(){
     
+    if(this.filterRes.length > 2){
+        
+      this.dishes$ = this.api.getDish(this.filterRes);
+      
+      this.result = this.dishes$.pipe(
+        debounce(()=> interval(2000)))
+        .subscribe((data : any)=> {
+          this.dishes = data.results
+        });
+       
+    }
   }
 }

@@ -14,7 +14,6 @@ import { DishFormComponent } from './components/dish-form/dish-form.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    DishFormComponent,
   ],
   imports: [
     BrowserModule,

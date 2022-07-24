@@ -32,4 +32,8 @@ export class ApiService {
     return this.http.get(`${this.url}&number=12&`,{headers:{'Content-Type':'application/json'}});
 
   }
+
+  getDish(query : string){
+    return this.http.get(`${this.url}&query=${query}`,{headers:{'Content-Type':'application/json'}});
+  }
 }

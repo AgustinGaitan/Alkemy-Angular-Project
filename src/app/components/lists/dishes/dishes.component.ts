@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class DishesComponent implements OnInit {
 
   dishes : Array<any> = [];
-  
+  dishes$ : any;
   constructor(private api : ApiService) { 
 
     this.api.getDishes()
@@ -31,7 +31,9 @@ export class DishesComponent implements OnInit {
       },
       complete:() => console.log('OK')
       
-    })
+    });
+  
+  
 
   }
 
