@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DishFormComponent implements OnInit {
 
+  filterRes : any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  filter(){
+    
+  }
 }
