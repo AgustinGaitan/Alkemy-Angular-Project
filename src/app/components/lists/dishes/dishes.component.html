@@ -1,5 +1,12 @@
 <div class="row justify-content-around dishes">
-    <div class="col-12 col-md-4 row rounded" *ngFor="let dish of dishes">
-            <app-dish [dish]="dish" (dishToDeleteEmitter)="DeleteDish($event)"></app-dish>
+    <div class="col-12 col-md-3 row rounded" *ngFor="let dish of dishes; let i = index">
+            <app-dish [dish]="dish" [time]="randomTime[i]" (dishToDeleteEmitter)="deleteDish($event)"></app-dish>
+    </div>
+    <div class="col-12 col-md-3 row rounded" *ngFor="let vdish of veganDishes; let i = index">
+        <app-dish [dish]="vdish" [time]="randomTime[i+2]" (dishToDeleteEmitter)="deleteDish($event)"></app-dish>
+    </div>
+
+    <div>
+        <!-- <h1>Total time: {{}}</h1> -->
     </div>
 </div>

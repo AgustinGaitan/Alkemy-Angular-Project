@@ -35,4 +35,8 @@ export class DishFormComponent implements OnInit {
        
     }
   }
+
+  addDish(){
+    
+  }
 }

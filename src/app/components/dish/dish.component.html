@@ -6,8 +6,13 @@
                 <img class="card-img-top" height="250" width="250" [src]="dish.image" alt="dish">
                 <div class="card-body">
                 <h5 class="card-title">{{dish.title}}</h5>
-                <button class="btn btn-info">Details</button>
-                <button class="btn btn-danger" (click)="DeleteDish(dish)">Delete</button>
+                
+                <h5>{{time}} minutes</h5>
+                <button class="btn btn-info" (click)="seeDetails()">Details</button>
+                <button class="btn btn-danger" (click)="deleteDish(dish)">Delete</button>
+                <div *ngIf="activeDetails">
+
+                </div>
                 </div>
             </div>
         </div>

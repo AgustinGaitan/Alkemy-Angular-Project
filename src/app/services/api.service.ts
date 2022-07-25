@@ -27,9 +27,15 @@ export class ApiService {
 
   }
 
+  getVeganDishes(){
+    
+    return this.http.get(`${this.url}&number=2&diet=Vegan`,{headers:{'Content-Type':'application/json'}});
+
+  }
+
   getDishes(){
     
-    return this.http.get(`${this.url}&number=12&`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${this.url}&number=2&cuisine=italian`,{headers:{'Content-Type':'application/json'}});
 
   }
 
