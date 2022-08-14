@@ -25,6 +25,8 @@ export class DishesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.calculateTotalTime();
   }
 
 
@@ -36,8 +38,8 @@ export class DishesComponent implements OnInit {
 
     this.totalTime = this.randomTime.reduce((previous : number  , current : number) => previous + current);
     console.log('totalTime: ',this.totalTime);
-    console.log('dishes.length ',this.dishes.length);
-    this.average = this.totalTime / (this.dishes.length + this.veganDishes.length);
+    console.log('dishes.length ',this.dishesService.dishes.length);
+    this.average = this.totalTime / (this.dishesService.dishes.length + this.dishesService.veganDishes.length);
 
     console.log('averageTime: ',this.totalTime);
 

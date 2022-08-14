@@ -57,7 +57,12 @@ export class DishesService {
 
   addDish(dishToAdd : any){
     this.dishes.push(dishToAdd);
-    console.log('Platos agregados',this.dishes );
+    Swal.fire({
+      title:'Added',
+      text:'Dish added to the menu',
+      icon:'success',
+      timer:2000
+    })
   }
 
   deleteDish(dishToDelete : any){
