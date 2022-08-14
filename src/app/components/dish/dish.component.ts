@@ -9,7 +9,9 @@ export class DishComponent implements OnInit {
   
   @Input() dish : any;
   @Input() time : any;
+  @Input() type : any;
   @Output() dishToDeleteEmitter : EventEmitter<any> = new EventEmitter();
+  @Output() dishToAddEmitter : EventEmitter<any> = new EventEmitter();
 
   activeDetails : boolean = false;
 
@@ -19,6 +21,7 @@ export class DishComponent implements OnInit {
   }
 
   deleteDish(dish : any){
+
     this.dishToDeleteEmitter.emit(dish);
   }
 
@@ -26,5 +29,9 @@ export class DishComponent implements OnInit {
     console.log(this.activeDetails);
     this.activeDetails = !this.activeDetails;
   }
-
+  
+  addDishEmitter(dish : any){
+    console.log('dish singular, ', dish);
+    this.dishToAddEmitter.emit(dish);
+  }
 }

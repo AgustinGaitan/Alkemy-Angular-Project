@@ -18,7 +18,7 @@
           <h4 class="mb-3">Search a dish to add</h4>
             <div class="row g-3">
               <div class="col-sm-6" *ngFor="let dish of dishes">
-                <app-dish [dish]="dish"></app-dish>
+                <app-dish [dish]="dish" [type]="'add'" (dishToAddEmitter)="this.dishService.addDish($event)"></app-dish>
               </div>
         </div>
       </div>

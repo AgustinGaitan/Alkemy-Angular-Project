@@ -9,6 +9,16 @@ export class ApiService {
   url : string = "https://api.spoonacular.com/recipes/complexSearch?apiKey=935ef93e69ea4383a6755b868e8297f6";
   urlLogin : string = "http://challenge-react.alkemy.org/";
 
+  // dishes : Array<Object> = [
+  //   {title:'Comida 1'},
+  //   {title:'Comida 2'},
+  // ];
+
+  // veganDishes : Array<Object> = [
+  //   {title:'Comida vegana 1'},
+  //   {title: 'Comida vegana 2'}
+  // ]
+
   constructor(private http : HttpClient) { 
 
 
@@ -35,7 +45,7 @@ export class ApiService {
 
   getDishes(){
     
-    return this.http.get(`${this.url}&number=2&cuisine=italian`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${this.url}&number=2&cuisine=italian&includeIngredients=cheese`,{headers:{'Content-Type':'application/json'}});
 
   }
 

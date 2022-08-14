@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { debounce, debounceTime, fromEvent, interval } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { DishesService } from 'src/app/services/dishes.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +16,7 @@ export class DishFormComponent implements OnInit {
   dishes$ : any;
   result : any;
   
-  constructor(private api : ApiService) { }
+  constructor(private api : ApiService, public dishService : DishesService) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +37,8 @@ export class DishFormComponent implements OnInit {
     }
   }
 
-  addDish(){
-    
+  addDish(dish : any){
+    console.log('dish-form para agregar', dish);
+    this.dishService.addDish(dish);
   }
 }

@@ -8,8 +8,15 @@
                 <h5 class="card-title">{{dish.title}}</h5>
                 
                 <h5>{{time}} minutes</h5>
-                <button class="btn btn-info" (click)="seeDetails()">Details</button>
-                <button class="btn btn-danger" (click)="deleteDish(dish)">Delete</button>
+
+                <div *ngIf="type !== 'add'; else add_buttons">
+                    <button class="btn btn-info" (click)="seeDetails()">Details</button>
+                    <button class="btn btn-danger" (click)="deleteDish(dish)">Delete</button>
+                </div>
+                <ng-template #add_buttons>
+                    <button class="btn btn-info" (click)="addDishEmitter(dish)">Add</button>
+                </ng-template>
+            
                 <div *ngIf="activeDetails">
 
                 </div>

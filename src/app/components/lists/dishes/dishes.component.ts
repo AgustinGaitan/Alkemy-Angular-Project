@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, mergeMap, Observable, switchMap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { DishesService } from 'src/app/services/dishes.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,71 +19,14 @@ export class DishesComponent implements OnInit {
   average : any;
   dishDelete : any;
 
-  constructor(private api : ApiService) { 
-    
-    
-    this.api.getVeganDishes()
-    .pipe(
-      switchMap( () => this.api.getDishes())
-    )
-    .subscribe((res : any) =>{
-      console.log('Con pipe y switch map: ', res);
-    });
-   
+  constructor(private api : ApiService, public dishesService : DishesService) { 
 
-    this.api.getVeganDishes()
-    .subscribe({
-      next: (res : any) =>{
-        console.log(res);
-        this.dishes = res.results;
-      },
-      error: (error : any) =>{
-
-        console.log("Error: ",error);
-        Swal.fire({
-          title:'Error',
-          text:error,
-          icon: 'error'
-        });
-      },
-      complete:() => console.log('OK')
-      
-    });
   
-    this.api.getDishes()
-    .subscribe({
-      next: (res : any) =>{
-        console.log(res);
-        this.veganDishes = res.results;
-      },
-      error: (error : any) =>{
-
-        console.log("Error: ",error);
-        Swal.fire({
-          title:'Error',
-          text:error,
-          icon: 'error'
-        });
-      },
-      complete:() => console.log('OK')
-      
-    });
-
   }
 
   ngOnInit(): void {
   }
 
-  deleteDish(dish : any){
-
-    if(this.veganDishes.includes(dish)){
-
-      this.veganDishes = this.dishes.filter((el : any) => el != dish);
-    }else{
-
-      this.dishes = this.dishes.filter((el : any) => el != dish);
-    }
-  }
 
   calculateTotalTime(){
 
