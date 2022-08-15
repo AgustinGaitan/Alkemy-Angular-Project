@@ -37,8 +37,4 @@ export class DishFormComponent implements OnInit {
     }
   }
 
-  addDish(dish : any){
-    console.log('dish-form para agregar', dish);
-    this.dishService.addDish(dish);
-  }
 }

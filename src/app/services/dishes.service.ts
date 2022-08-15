@@ -13,7 +13,7 @@ export class DishesService {
   constructor(private api : ApiService) { 
 
       this.api.getVeganDishes()
-    .subscribe({
+      .subscribe({
       next: (res : any) =>{
         console.log(res);
         this.dishes = res.results;
@@ -21,10 +21,10 @@ export class DishesService {
       },
       error: (error : any) =>{
 
-        console.log("Error: ",error);
+        
         Swal.fire({
           title:'Error',
-          text:error,
+          text:error.error.message,
           icon: 'error'
         });
       },
@@ -40,11 +40,10 @@ export class DishesService {
         
       },
       error: (error : any) =>{
-
-        console.log("Error: ",error);
+        
         Swal.fire({
           title:'Error',
-          text:error,
+          text:error.error.message,
           icon: 'error'
         });
       },
@@ -74,6 +73,15 @@ export class DishesService {
       
       this.dishes = this.dishes.filter((el : any) => el.id != dishToDelete.id);
     }
+
+    Swal.fire({
+      title:'Deleted',
+      text: `${dishToDelete.title} was removed from the menu` ,
+      icon:'success',
+      timer:2000
+    });
   }
+
+
 
 }
