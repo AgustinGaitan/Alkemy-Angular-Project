@@ -1,26 +1,23 @@
 
-<div class="container color-white">
+<div class="container add_dish">
 
       <div class="py-5 text-center">
         <h2>Add a dish</h2>
+        <hr/>
       </div>
-  
+      <div class="d-flex justify-content-center">
+        <h4 class="mb-3">Search a dish to add</h4>
+      </div>
+      <div class="d-flex justify-content-center">
+        <input type="text" [(ngModel)]="filterRes" (ngModelChange)="filter()">
+      </div>
       <div class="row g-5">
-       
-        <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Search a dish to add</h4>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <input type="text" [(ngModel)]="filterRes" (ngModelChange)="filter()">
+            <div class="col-md-7 col-lg-8">
+              <div class="row g-3">
+                <div class="col-sm-6" *ngFor="let dish of dishes">
+                  <app-dish [dish]="dish" [type]="'add'" (dishToAddEmitter)="this.dishService.addDish($event)"></app-dish>
+                </div>
               </div>
-        </div>
-        <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Search a dish to add</h4>
-            <div class="row g-3">
-              <div class="col-sm-6" *ngFor="let dish of dishes">
-                <app-dish [dish]="dish" [type]="'add'" (dishToAddEmitter)="this.dishService.addDish($event)"></app-dish>
-              </div>
-        </div>
+            </div>
       </div>
-    
 </div>

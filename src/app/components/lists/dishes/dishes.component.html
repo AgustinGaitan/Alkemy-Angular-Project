@@ -1,15 +1,23 @@
 <div class="row justify-content-around dishes">
 
     <div class="time_title card">
-        <h3>Total time to prepare: {{totalTime}} minutes</h3>
+        <h3><i class="bi bi-alarm"></i>Total time to prepare: {{totalTime}} minutes</h3>
+        <h3><i class="bi bi-alarm"></i>Average time: {{average}} minutes</h3>
     </div>
  
-    <div class="col-12 col-md-3 row rounded" *ngFor="let dish of this.dishesService.dishes; let i = index">
+    <div class="col-12 col-md-3 row rounded puff-in-center" *ngFor="let dish of this.dishesService.dishes; let i = index">
             <app-dish [dish]="dish" [time]="randomTime[i]" (dishToDeleteEmitter)="this.dishesService.deleteDish($event)"></app-dish>
     </div>
-    <div class="col-12 col-md-3 row rounded" *ngFor="let vdish of this.dishesService.veganDishes; let i = index">
+    <div class="col-12 col-md-3 row rounded puff-in-center" *ngFor="let vdish of this.dishesService.veganDishes; let i = index">
         <app-dish [dish]="vdish" [time]="randomTime[i+2]" (dishToDeleteEmitter)="this.dishesService.deleteDish($event)"></app-dish>
     </div>
+    <!-- 
+    <div class="col-12 col-md-3 row rounded puff-in-center" *ngFor="let dish of testDishes; let i = index">
+        <app-dish [dish]="dish" [time]="randomTime[i]" (dishToDeleteEmitter)="this.dishesService.deleteDish($event)"></app-dish>
+    </div>
+    <div class="col-12 col-md-3 row rounded puff-in-center" *ngFor="let vdish of this.testVDishes; let i = index">
+        <app-dish [dish]="vdish" [time]="randomTime[i+2]" (dishToDeleteEmitter)="this.dishesService.deleteDish($event)"></app-dish>
+    </div> -->
 
 
 </div>

@@ -19,6 +19,16 @@ export class DishesComponent implements OnInit {
   average : any;
   dishDelete : any;
 
+  testDishes : Array<Object> = [
+    {title:'Comida 1 título', image : 'https://static-sevilla.abc.es/media/gurmesevilla/2012/01/comida-rapida-casera.jpg' },
+    {title:'Comida 2 título', image: 'https://static-sevilla.abc.es/media/gurmesevilla/2012/01/comida-rapida-casera.jpg'}
+  ];
+
+  testVDishes : Array<Object> = [
+    {title:'Comida vegana 1 título', image : 'https://static-sevilla.abc.es/media/gurmesevilla/2012/01/comida-rapida-casera.jpg'},
+    {title:'Comida vegana 2 título', image: 'https://static-sevilla.abc.es/media/gurmesevilla/2012/01/comida-rapida-casera.jpg'}
+  ];
+
   constructor(private api : ApiService, public dishesService : DishesService) { 
 
   

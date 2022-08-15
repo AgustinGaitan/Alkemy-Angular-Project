@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
 
-  constructor(public userService : UserService){
-
+  constructor(public router : Router){
+    
   }
 
   title = 'A la carta';
