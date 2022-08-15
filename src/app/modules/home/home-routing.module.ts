@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DishFormComponent } from 'src/app/components/dish-form/dish-form.component';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 import { HomeComponent } from '../../pages/home/home.component';
 
 const routes: Routes = [
@@ -10,7 +11,9 @@ const routes: Routes = [
   },
   {
     path:'add-dish',
-    component:DishFormComponent
+    component:DishFormComponent,
+    canActivate:[AuthGuard]
+    
   }
 ];
 

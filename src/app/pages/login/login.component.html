@@ -1,12 +1,13 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column fade-in">
 
 
-  <main class="px-3">
-    <h1>Login</h1>
-    <div class="col-6">
+  <main class="px-3 login">
+    
+    <div class="col-6 ">
+      <h1>Login</h1>
       <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-          <div class="col">
+          <div class="col form-group">
             <label for="floatingInput">Email</label>
             <input type="text" formControlName="email" class="form-control" name="email">
             <div 
@@ -19,7 +20,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col form-group">
             <label for="floatingInput">Password</label>
             <input type="text" formControlName="password" class="form-control" name="password" minlength="5">
             <div 
@@ -31,12 +32,16 @@
               Invalid password.
             </div>
           </div>
-                                                             
-          <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid || disableButton">Enviar</button>
+          
+          <div class="buttonLog mt-3">
+            <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid || disableButton">Enviar</button>
+          </div>
 
       </form>
-      <div *ngIf="disableButton">
-        <h1>Spinner</h1>
+      <br/>
+      <div *ngIf="disableButton"> 
+        <div class="spinner-border text-primary spinner" role="status">
+        </div>
       </div>
     </div>
   </main>
