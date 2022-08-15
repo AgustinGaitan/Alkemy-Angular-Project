@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  url : string = "https://api.spoonacular.com/recipes/complexSearch?apiKey=935ef93e69ea4383a6755b868e8297f6";
-  urlLogin : string = "http://challenge-react.alkemy.org/";
 
   // dishes : Array<Object> = [
   //   {title:'Comida 1'},
@@ -33,23 +32,23 @@ export class ApiService {
       password: user.password
     }
     
-    return this.http.post(this.urlLogin, body);
+    return this.http.post(environment.urlLogin, body);
 
   }
 
   getVeganDishes(){
     
-    return this.http.get(`${this.url}&number=2&diet=Vegan`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${environment.url}&number=2&diet=Vegan`,{headers:{'Content-Type':'application/json'}});
 
   }
 
   getDishes(){
     
-    return this.http.get(`${this.url}&number=2&cuisine=italian&includeIngredients=cheese`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${environment.url}&number=2&cuisine=italian&includeIngredients=cheese`,{headers:{'Content-Type':'application/json'}});
 
   }
 
   getDish(query : string){
-    return this.http.get(`${this.url}&query=${query}`,{headers:{'Content-Type':'application/json'}});
+    return this.http.get(`${environment.url}&query=${query}`,{headers:{'Content-Type':'application/json'}});
   }
 }
