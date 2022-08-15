@@ -3,6 +3,10 @@
     row-gap:25px;
 }
 
+.timers{
+    display: flex;
+    align-items: flex-start;
+}
 
 
 .puff-in-center{-webkit-animation:puff-in-center .7s cubic-bezier(.47,0.000,.745,.715) both;animation:puff-in-center .7s cubic-bezier(.47,0.000,.745,.715) both}
